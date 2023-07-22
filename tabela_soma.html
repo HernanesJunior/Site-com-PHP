@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabela de Produtos</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        input{
+            border: none;
+            outline: none;
+            text-align: center;
+        }
+
+        .container{
+            width: 100vh;
+            height: 100vh;
+        }
+    </style>
+    <script>
+        function calcularSoma() {
+            var tabela = document.getElementById('tabelaProdutos');
+            var linhas = tabela.getElementsByTagName('tr');
+
+            for (var i = 1; i < linhas.length; i++) {
+                var celulas = linhas[i].getElementsByTagName('td');
+                var resultado = 0;
+
+                for (var j = 1; j < celulas.length - 1; j++) {
+                    var valor = parseInt(celulas[j].querySelector('input').value);
+                    if (!isNaN(valor)) {
+                        resultado += valor;
+                    }
+                }
+
+                celulas[celulas.length - 1].textContent = resultado.toFixed(2);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+    <h2>MODELO</h2>
+    <table id="tabelaProdutos">
+        <tr>
+            <th>MODELO</th>
+            <th>08:00 hs</th>
+            <th>09:00 hs</th>
+            <th>10:00 hs</th>
+            <th>11:00 hs</th>
+            <th>12:00 hs</th>
+            <th>13:00 hs</th>
+            <th>14:00 hs</th>
+            <th>15:00 hs</th>
+            <th>16:00 hs</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td>K2G</td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>K1S</td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>K99</td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td><input type="text" onchange="calcularSoma()" /></td>
+            <td></td>
+        </tr>
+    </table>
+
+    </div>
+</body>
+</html>
